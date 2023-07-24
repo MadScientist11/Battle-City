@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DefaultNamespace
+namespace BattleCity.Services.InputService
 {
     public interface IInputService : IService
     {
@@ -10,11 +10,6 @@ namespace DefaultNamespace
         public bool MovementInputDetected { get; }
     }
 
-    public interface IService
-    {
-    }
-
-  
 
     public class InputService : IInputService, GameInput.IGameplayActions
     {

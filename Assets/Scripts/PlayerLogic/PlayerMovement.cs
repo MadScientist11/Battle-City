@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
-using DefaultNamespace;
+using BattleCity.Services.InputService;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace BattleCity.PlayerLogic
 {
