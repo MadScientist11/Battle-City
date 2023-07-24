@@ -14,16 +14,7 @@ namespace BattleCity.PlayerLogic
         public float collisionOffset = 0.05f;
         public ContactFilter2D movementFilter;
         private List<RaycastHit2D> castCollisions = new();
-        private float _currentAngle;
 
-
-        private Dictionary<MoveDirection, float> keyAngleMapping = new()
-        {
-            { MoveDirection.Up, 0 },
-            { MoveDirection.Left, 90f },
-            { MoveDirection.Down, 180f },
-            { MoveDirection.Right, 270f },
-        };
 
         private InputService _inputService;
 
@@ -36,24 +27,21 @@ namespace BattleCity.PlayerLogic
             _inputService.Initialize();
         }
 
-        private void Update()
-        {
-            HandleRotation(keyAngleMapping[_inputService.MoveDirection]);
-Debug.Log(_inputService.MoveDirection);
-           
-        }
-
         private void FixedUpdate()
         {
-            Vector2 moveInput =
-                _inputService.Movement;
-
+            if(_inputService.MovementInputDetected is false)
+                return;
+            
+            Vector2 moveInput = _inputService.Movement;
+            HandleRotation(moveInput);
             TryMovePlayer(moveInput);
         }
 
-        private void HandleRotation(float angle)
+        private void HandleRotation(Vector2 moveInput)
         {
-            _rigidbody.SetRotation(angle);
+            Vector2 movementDirection = moveInput.normalized;
+            float rotation = Vector2.SignedAngle(Vector2.up, movementDirection);
+            _rigidbody.SetRotation(rotation);
         }
 
         private void TryMovePlayer(Vector2 moveInput)

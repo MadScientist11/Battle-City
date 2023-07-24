@@ -920,9 +920,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2590341647942155587}
+  - component: {fileID: 7374986172598980607}
   - component: {fileID: 7374986172598980609}
   - component: {fileID: 7374986172598980608}
-  - component: {fileID: 7374986172598980607}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e9f8b3b83f0f04f85d044c56862047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionOffset: 0.05
+  collisionOffset: 0.1
   movementFilter:
     useTriggers: 0
     useLayerMask: 0
