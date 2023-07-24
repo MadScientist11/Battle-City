@@ -8,18 +8,18 @@ namespace BattleCity.Source.PlayerLogic
     [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
     public class PlayerMovement : MonoBehaviour
     {
-        private Rigidbody2D _rigidbody;
-
-        public float collisionOffset = 0.05f;
-        public ContactFilter2D movementFilter;
         private List<RaycastHit2D> castCollisions = new();
 
+        private Rigidbody2D _rigidbody;
+        
         private IInputService _inputService;
+        private PlayerConfiguration _playerConfig;
 
         [Inject]
-        public void Construct(IInputService inputService)
+        public void Construct(IInputService inputService, PlayerConfiguration playerConfiguration)
         {
             _inputService = inputService;
+            _playerConfig = playerConfiguration;
         }
         
         private void Start()
@@ -63,15 +63,14 @@ namespace BattleCity.Source.PlayerLogic
         private bool MovePlayer(Vector2 moveDirection)
         {
             int count = _rigidbody.Cast(moveDirection,
-                movementFilter,
+                _playerConfig.MovementFilter,
                 castCollisions,
-                5 * Time.fixedDeltaTime + collisionOffset);
+                _playerConfig.MoveSpeed * Time.fixedDeltaTime + _playerConfig.CollisionOffset);
 
             if (count == 0)
             {
-                Vector2 moveVector = moveDirection * 5 * Time.fixedDeltaTime;
+                Vector2 moveVector = moveDirection * _playerConfig.MoveSpeed * Time.fixedDeltaTime;
                 _rigidbody.MovePosition(_rigidbody.position + moveVector);
-
                 return true;
             }
 

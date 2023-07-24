@@ -423,6 +423,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 7374986172598980606}
+  _playerConfiguration: {fileID: 11400000, guid: 1e6a6a1f4de3dd04f9a50981cbe2d72c, type: 2}
 --- !u!1 &1893498843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,21 +1025,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e9f8b3b83f0f04f85d044c56862047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionOffset: 0.1
-  movementFilter:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
 --- !u!61 &7374986172598980608
 BoxCollider2D:
   m_ObjectHideFlags: 0
