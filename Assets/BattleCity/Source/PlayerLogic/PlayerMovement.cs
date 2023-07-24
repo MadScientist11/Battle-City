@@ -1,8 +1,9 @@
 using System.Collections.Generic;
-using BattleCity.Services.InputService;
+using BattleCity.Source.Services;
 using UnityEngine;
+using VContainer;
 
-namespace BattleCity.PlayerLogic
+namespace BattleCity.Source.PlayerLogic
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
     public class PlayerMovement : MonoBehaviour
@@ -13,16 +14,18 @@ namespace BattleCity.PlayerLogic
         public ContactFilter2D movementFilter;
         private List<RaycastHit2D> castCollisions = new();
 
+        private IInputService _inputService;
 
-        private InputService _inputService;
-
+        [Inject]
+        public void Construct(IInputService inputService)
+        {
+            _inputService = inputService;
+        }
+        
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             SetUpRigidbody(_rigidbody);
-
-            _inputService = new InputService();
-            _inputService.Initialize();
         }
 
         private void FixedUpdate()

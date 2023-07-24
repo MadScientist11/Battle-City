@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace BattleCity.Services.InputService
+namespace BattleCity.Source.Services
 {
     public interface IInputService : IService
     {
@@ -11,7 +11,7 @@ namespace BattleCity.Services.InputService
     }
 
 
-    public class InputService : IInputService, GameInput.IGameplayActions
+    public class InputService : IInputService, IInitializableService, GameInput.IGameplayActions
     {
         private GameInput _input;
 

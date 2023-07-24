@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace BattleCity.PlayerLogic
+namespace BattleCity.Source.PlayerLogic
 {
     public class PlayerAttack : MonoBehaviour
     {
