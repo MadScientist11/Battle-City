@@ -8,5 +8,11 @@
             public const string GamePath = "Assets/BattleCity/Scenes/Game.unity";
         }
 
+        public static class Assets
+        {
+            public const string ProjectilePath = "Rocket";
+
+        }
+
     }
 }
