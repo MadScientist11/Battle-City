@@ -41,16 +41,16 @@ namespace BattleCity.Source.Services
             foreach (Projectile projectile in _launchedProjectiles)
             {
                 Transform projectileTransform = projectile.transform;
-                if (CheckForProjectileHit(projectile, deltaTime, out RaycastHit2D hit))
+                if (CheckForHit(projectile, deltaTime, out RaycastHit2D hit))
                 {
-                    GameObject.Destroy(hit.transform.gameObject);
+                    projectile.ReleaseToPool();
                 }
 
                 projectileTransform.position += projectileTransform.up * 5 * deltaTime;
             }
         }
 
-        private bool CheckForProjectileHit(Projectile projectile, float deltaTime, out RaycastHit2D hit)
+        private bool CheckForHit(Projectile projectile, float deltaTime, out RaycastHit2D hit)
         {
             RaycastHit2D potentialHit =
                 Physics2D.Raycast(projectile.transform.position, projectile.transform.up, 5 * deltaTime,
