@@ -579,7 +579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8610402462209000493}
   - component: {fileID: 4432030213485431282}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1878677469969328858}
   - component: {fileID: 4131103906629564838}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,7 +714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4026629309567513223}
   - component: {fileID: 3865412103728350125}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: GunConnector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662302168238211583}
   - component: {fileID: 7533888661710596976}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -986,7 +986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5190345088515346587}
   - component: {fileID: 4164567500454916921}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1006,7 +1006,7 @@ GameObject:
   - component: {fileID: 7374986172598980610}
   - component: {fileID: 7374986172598980609}
   - component: {fileID: 7374986172598980608}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1111,6 +1111,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectile: {fileID: 7971597003785223756, guid: 4a36b05b892217344980004af481fb11, type: 3}
   _projectileSpawnPoint: {fileID: 2590341647942155587}
+  _affectedLayers:
+    serializedVersion: 2
+    m_Bits: 55
 --- !u!212 &7533888661710596976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1173,7 +1176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1188113553136372777}
   - component: {fileID: 1404432660832293489}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Hull
   m_TagString: Untagged
   m_Icon: {fileID: 0}

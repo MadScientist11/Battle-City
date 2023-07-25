@@ -9,6 +9,7 @@ namespace BattleCity.Source.PlayerLogic
     {
         [SerializeField] private GameObject _projectile;
         [SerializeField] private Transform _projectileSpawnPoint;
+        [SerializeField] private LayerMask _affectedLayers;
         private IProjectileSystem _projectileSystem;
 
         [Inject]
@@ -31,7 +32,7 @@ namespace BattleCity.Source.PlayerLogic
         private void FireProjectile()
         {
             Quaternion rotation = Quaternion.LookRotation(Vector3.forward, transform.up);
-            _projectileSystem.LaunchProjectile(_projectileSpawnPoint.position, rotation);
+            _projectileSystem.LaunchProjectile(_projectileSpawnPoint.position, rotation, _affectedLayers);
         }
     }
 }
