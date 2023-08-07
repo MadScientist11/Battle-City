@@ -12,7 +12,7 @@ namespace BattleCity.Source.Services
     
     public class ProjectileFactory : PooledFactory<Projectile>, IProjectileFactory, IInitializableService
     {
-        private Projectile _projectilePrefab;
+        private GameObject _projectilePrefab;
         
         private IAssetProvider _assetProvider;
 
@@ -22,9 +22,10 @@ namespace BattleCity.Source.Services
             _assetProvider = assetProvider;
         }
         
-        public void Initialize()
+        public async void Initialize()
         {
-            _projectilePrefab = _assetProvider.LoadAsset<Projectile>(GameConstants.Assets.ProjectilePath);
+            GameObject gameObject = await _assetProvider.LoadAssetAsync<GameObject>(GameConstants.Assets.ProjectilePath);
+            _projectilePrefab = gameObject;
         }
 
         public Projectile GetOrCreateProjectile(Vector3 spawnPoint, Quaternion rotation)
@@ -37,7 +38,7 @@ namespace BattleCity.Source.Services
 
         protected override Projectile Create()
         {
-            return GameObject.Instantiate(_projectilePrefab);
+            return GameObject.Instantiate(_projectilePrefab).GetComponent<Projectile>();
         }
 
         protected override void Release(Projectile obj)

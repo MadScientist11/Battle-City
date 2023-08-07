@@ -26,7 +26,6 @@ namespace BattleCity.Source.PlayerLogic
                 Debug.Log("Fire");
                 FireProjectile();
             }
-            
         }
 
         private void FireProjectile()
